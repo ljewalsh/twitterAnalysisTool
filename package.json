@@ -2,10 +2,55 @@
   "name": "twitteranalysistool",
   "version": "1.0.0",
   "description": "A tool for analysing tweet json",
-  "main": "index.js",
+  "main": "src/index.js",
+  "srcPath": "src",
+  "distPath": "dist",
+  "testsPath": "*.spec.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./bin/test",
+    "lint": "./bin/lint",
+    "test-only": "./bin/test-only",
+    "build": "./bin/build",
+    "start": "node ./dist/index.js"
   },
   "author": "Lucy-Jane Walsh",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@mishguru/eslint-config": "^4.1.0",
+    "ava": "^0.25.0",
+    "babel-cli": "^6.26.0",
+    "moment": "^2.22.2",
+    "ramda": "^0.25.0",
+    "sleep": "^5.1.1",
+    "stu": "^2.0.0",
+    "syllable": "^3.0.0",
+    "twitter": "^1.7.1"
+  },
+  "devDependencies": {
+    "babel-cli": "6.26.0",
+    "babel-plugin-transform-object-rest-spread": "6.26.0",
+    "babel-preset-env": "1.7.0",
+    "babel-register": "6.26.0"
+  },
+  "babel": {
+    "presets": [
+      "flow",
+      [
+        "env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ],
+    "plugins": [
+      [
+        "transform-object-rest-spread",
+        {
+          "useBuiltIns": true
+        }
+      ]
+    ]
+  }
 }
